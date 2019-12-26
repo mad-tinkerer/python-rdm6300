@@ -12,10 +12,10 @@ setuptools.setup(
     author_email="mad.tiknerer.me@gmail.com",
     description="EM4100 rfid reader",
     long_description=long_description,
-    install_require=[
+    install_requires=[
         "pyserial",
     ],
-    tests_requires=[
+    tests_require=[
         "pyserial",
         "mock",
     ],
