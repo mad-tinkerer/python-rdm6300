@@ -11,6 +11,9 @@ setuptools.setup(
     author_email="mad.tiknerer.me@gmail.com",
     description="EM4100 rfid reader",
     long_description=long_description,
+    install_requires=[
+        "pyserial",
+    ],
     long_description_content_type="text/markdown",
     url="https://github.com/mad-tinkerer/python-em4100",
     packages=setuptools.find_packages(),
