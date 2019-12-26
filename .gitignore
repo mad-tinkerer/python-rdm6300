@@ -1,1 +1,6 @@
 virtualenv
+htmlcov
+.coverage
+__pycache__
+*.pyc
+.vscode
