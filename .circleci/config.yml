@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/circleci
+    docker:
+      - image: circleci/python:3.6.4
+
+    steps:
+    - checkout
+    - run:
+        name: execute unit tests
+        command: |
+          python3 -m unittest
