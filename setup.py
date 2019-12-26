@@ -16,6 +16,7 @@ setuptools.setup(
         "pyserial",
     ],
     tests_requires=[
+        "pyserial",
         "mock",
     ],
     long_description_content_type="text/markdown",
