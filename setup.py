@@ -7,10 +7,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="rdm6300",
-    version="0.1.0",
+    version="0.1.1",
     author="The Mad Thinkerer Me",
     author_email="mad.tiknerer.me@gmail.com",
-    description="Interface for RDM6300 rfid reader",
+    description="RDM6300/EM4100 RFID reader library",
     long_description=long_description,
     install_requires=[
         "pyserial",
