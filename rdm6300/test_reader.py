@@ -3,7 +3,7 @@ import time
 from mock import patch, Mock
 from unittest import TestCase
 
-from em4100.reader import CardData, Reader, BaseReader
+from rdm6300.reader import CardData, Reader, BaseReader
 
 VALID_CARDS = ['67003B51C6CB', '67003BA86C98', '67003BA86793']
 INVALID_CARDS = ['', '68003B51C6CB', '68003B51C6CBDA', 'SomeThingCrappyÚTFŐ']
@@ -55,16 +55,16 @@ class HeartbeatTestClass(BaseReader):
 
     def card_removed(self, card):
         self.events.append('removed')
-        self.stop_read()
+        self.stop()
 
 
 def _assemble_bitstream(card_data):
     rv = bytearray()
 
     for card_string in card_data:
-        rv.append(Reader.RFID_STARTCODE)
+        rv.append(Reader._RFID_STARTCODE)
         rv.extend(card_string.encode())
-        rv.append(Reader.RFID_ENDCODE)
+        rv.append(Reader._RFID_ENDCODE)
 
     return rv
 
@@ -77,7 +77,7 @@ class BaseReaderTestCase(TestCase):
         except ValueError:
             return []
 
-    @patch('em4100.reader.Serial')
+    @patch('rdm6300.reader.Serial')
     def test_card_data_processor(self, serial_mock):
         serial_mock.return_value = None
         reader = BaseReader(None)
@@ -87,7 +87,7 @@ class BaseReaderTestCase(TestCase):
             data = reader._parse_fragment(fragment)
             self.assertEqual(data, value)
 
-    @patch('em4100.reader.Serial')
+    @patch('rdm6300.reader.Serial')
     def test_card_reader_heartbeat(self, serial_mock):
         test_data = _assemble_bitstream([
             VALID_CARDS[0],
@@ -107,7 +107,7 @@ class BaseReaderTestCase(TestCase):
 
 
 class ReaderTestCase(TestCase):
-    @patch('em4100.reader.Serial')
+    @patch('rdm6300.reader.Serial')
     def test_card_reader(self, serial_mock):
         test_data = _assemble_bitstream([
             VALID_CARDS[0], VALID_CARDS[1], VALID_CARDS[2],
@@ -138,7 +138,7 @@ class ReaderTestCase(TestCase):
         self.assertFalse(r.serial.is_open)
         self.assertTrue(r.quit_reader)
 
-    @patch('em4100.reader.Serial')
+    @patch('rdm6300.reader.Serial')
     def test_card_reader_timeout(self, serial_mock):
         test_data = _assemble_bitstream([
             VALID_CARDS[0], VALID_CARDS[1]])

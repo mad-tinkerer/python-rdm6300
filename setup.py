@@ -6,11 +6,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="em4100-mad-tinkerer",
+    name="rdm6300",
     version="0.1.0",
     author="The Mad Thinkerer Me",
     author_email="mad.tiknerer.me@gmail.com",
-    description="EM4100 rfid reader",
+    description="Interface for RDM6300 rfid reader",
     long_description=long_description,
     install_requires=[
         "pyserial",
@@ -20,7 +20,7 @@ setuptools.setup(
         "mock",
     ],
     long_description_content_type="text/markdown",
-    url="https://github.com/mad-tinkerer/python-em4100",
+    url="https://github.com/mad-tinkerer/python-rdm6300",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
