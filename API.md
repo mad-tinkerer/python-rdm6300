@@ -1,10 +1,10 @@
-# Module `rdm6300` {#rdm6300}
+# Module `rdm6300`
  
 ## Sub-modules
 
 * [rdm6300.reader](#rdm6300.reader)
     
-# Module `rdm6300.reader` {#rdm6300.reader}
+# Module `rdm6300.reader`
 
 A python written library for an 125kHz RFID reader using the EM4100 protocol.
 
@@ -14,7 +14,7 @@ All rights reserved.
  
 ## Classes
     
-### Class `BaseReader` {#rdm6300.reader.BaseReader}
+### Class `BaseReader`
 
 > `class BaseReader(port='/dev/ttyS0', heartbeat_interval=0.5)`
 
@@ -39,7 +39,7 @@ and *invalid_card* methods are implemented.
     
 #### Methods
     
-##### Method `card_inserted` {#rdm6300.reader.BaseReader.card_inserted}
+##### Method `card_inserted`
     
 > `def card_inserted(self, card)`
 
@@ -51,7 +51,7 @@ The method will be called only once for a card (so the code handels deduplicatio
 
 **Tip:&ensp;Override this method in a subclass to have your own event handler logic:** 
     
-##### Method `card_removed` {#rdm6300.reader.BaseReader.card_removed}
+##### Method `card_removed`
 
 > `def card_removed(self, card)`
 
@@ -59,13 +59,13 @@ This method is called if the currently inserted card has not been seen since {se
 
 **Tip:&ensp;Override this method in a subclass to have your own event handler logic.:** 
     
-##### Method `close` {#rdm6300.reader.BaseReader.close}
+##### Method `close`
     
 > `def close(self)`
 
 Stop processing the card input and close the serial port
 
-##### Method `invalid_card` {#rdm6300.reader.BaseReader.invalid_card}
+##### Method `invalid_card`
     
 > `def invalid_card(self, card)`
 
@@ -76,21 +76,21 @@ times for the same card.
 
 **Tip:&ensp;Override this method in a subclass to have your own event handler logic.:** 
     
-##### Method `start` {#rdm6300.reader.BaseReader.start}
+##### Method `start`
     
 > `def start(self)`
 
 Start the event loop for reading RFID cards, to control the loop please check the
  *card_inserted*, *card_removed*, *invalid_card* and *tick* methods.
 
-##### Method `stop` {#rdm6300.reader.BaseReader.stop}
+##### Method `stop`
     
 > `def stop(self)`
 
 
 Stop the currently running read activity and signal that *start* should return ASAP
     
-##### Method `tick` {#rdm6300.reader.BaseReader.tick}
+##### Method `tick`
 
 > `def tick(self)`
 
@@ -99,7 +99,7 @@ other sources please use this method to put your code into.
 
 **Tip:&ensp;Override this method in a subclass to have your own event handler logic.:** 
     
-### Class `CardData` {#rdm6300.reader.CardData}
+### Class `CardData`
 
 > `class CardData(*args, **kwargs)`
 
@@ -111,23 +111,23 @@ Represents a card read event coming from the RFID reader.
     
 #### Instance variables
 
-##### Variable `checksum` {#rdm6300.reader.CardData.checksum}
+##### Variable `checksum`
 
 [int] The checksum received from the card.
     
-##### Variable `is_valid` {#rdm6300.reader.CardData.is_valid}
+##### Variable `is_valid`
 
 [bool] Was the read valid (e.g. did the checksum match).
 
-##### Variable `type` {#rdm6300.reader.CardData.type}
+##### Variable `type`
 
 [int] The type field for the rfid card (1st byte).
     
-##### Variable `value` {#rdm6300.reader.CardData.value}
+##### Variable `value`
 
 [int] The card's identifier (printed on the rfid card).
 
-### Class `Reader` {#rdm6300.reader.Reader}
+### Class `Reader`
 
 > `class Reader(port)`
 
@@ -142,7 +142,7 @@ to read rfid tags without writing the custom event handler methods.
     
 #### Methods
 
-##### Method `read` {#rdm6300.reader.Reader.read}
+##### Method `read`
 
 > `def read(self, timeout=None)`
 
