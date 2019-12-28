@@ -14,6 +14,8 @@ post on this: https://the.mad-tinkerer.me/rdm-6300-raspberry-pi/
 
 The reader code has almost 100% unit test coverage, so the code should be quite stable.
 
+Please see the API documentation [here](API.md)
+
 # Usage (Easy mode)
 
 Assuming that you had wired the RDM6300 correctly you can execute the following to create a working
