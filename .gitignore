@@ -4,3 +4,6 @@ htmlcov
 __pycache__
 *.pyc
 .vscode
+rdm6300.egg-info
+dist
+build

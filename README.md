@@ -12,6 +12,8 @@ Please note that wiring the RDM6300 to an RPI is not entierly trivial (either it
 you are risking frying your PI), so before tring this out please make sure you had read my blog
 post on this: https://the.mad-tinkerer.me/rdm-6300-raspberry-pi/
 
+The reader code has almost 100% unit test coverage, so the code should be quite stable.
+
 # Usage (Easy mode)
 
 Assuming that you had wired the RDM6300 correctly you can execute the following to create a working
@@ -23,11 +25,12 @@ $ . virtualenv/bin/activate
 $ pip install rdm6300
 ```
 
-Afterwards you can use this code to start reading with the RFID reader:
+Afterwards you can use this code to start reading with the RFID reader (examples/simple.py):
 ```
-import RDM6300
+import rdm6300
 
-reader = RDM6300.Reader('/dev/ttyS0')
+reader = rdm6300.Reader('/dev/ttyS0')
+print("Please insert an RFID card")
 while True:
     card = reader.read()
     if card:
@@ -36,10 +39,12 @@ while True:
 
 # Usage (Real life scenario)
 
-```
-import RDM6300
+see examples/complex.py
 
-class Reader(RDM6300.BaseReader):
+```
+import rdm6300
+
+class Reader(rdm6300.BaseReader):
     def card_inserted(self, card):
         print(f"card inserted {card}")
 
