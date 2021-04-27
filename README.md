@@ -10,9 +10,16 @@ protocol.
 
 Please note that wiring the RDM6300 to an RPI is not entierly trivial (either it will not work, or
 you are risking frying your PI), so before tring this out please make sure you had read my blog
-post on this: https://the.mad-tinkerer.me/rdm-6300-raspberry-pi/
+post on this: https://mad-tinkerer-me.medium.com/rfid-with-raspberry-pi-on-the-cheap-766ae0b6c97e
 
 The reader code has almost 100% unit test coverage, so the code should be quite stable.
+
+If you don't want to go over the whole blog post, then here's the wiring diagram for the project:
+
+![Wiring the RDM 6300](https://raw.githubusercontent.com/mad-tinkerer/python-rdm6300/master/docs/rdm6400-wiring_bb.png "Wiring the RDM 6300")
+
+Note: the resistors are matching resistors, preferrably something around 1-2 kOhms
+
 
 Please see the API documentation [here](API.md)
 
