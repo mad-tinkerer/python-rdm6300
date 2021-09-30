@@ -67,6 +67,11 @@ r = Reader('/dev/ttyS0')
 r.start()
 
 ```
+# Atention
+
+if you're having trouble reading the serial port try changing the name /dev/ttyS0 to something like /dev/serial0, or run a
+```ls -la /dev/``` and check the correct sys link for the serial port
+
 # Credits
 
 The code is a rewrite of the library pyrfid: https://www.pm-codeworks.de/pyrfid.html
